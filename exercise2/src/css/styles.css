@@ -1,0 +1,102 @@
+body {
+  font-family: 'M PLUS 1p', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  margin: 5vmax;
+  width: 100%;
+  height: 20vmax;
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vmax;
+  width: 20%;
+  height: 19vmax;
+  box-shadow: 0.1vmax 0.2vmax 0.4vmax grey;
+}
+
+.form-title-block {
+  display: flex;
+  justify-content: center;
+  background: #47f9ff;
+  padding: 0.5vmax;
+}
+
+.form-title-block__item {
+  font-size: 1.5vmax;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 7%;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-list {
+  border: 0.1vmax solid rgba(0, 0, 0, 0.116);
+  border-radius: 0.2vmax;
+  outline: none;
+  padding: 0.2vmax;
+  font-size: 0.9vmax;
+}
+
+.form-field__label {
+  margin: 1.5%;
+  font-size: 1.1vmax;
+}
+
+.form-field__label_validation {
+  color: rgb(255, 100, 100);
+  margin-bottom: 0.5vmax;
+}
+
+.form-field__input {
+  border: 0.1vmax solid rgba(0, 0, 0, 0.116);
+  border-radius: 0.2vmax;
+  outline: none;
+  padding: 0.2vmax;
+  font-size: 0.9vmax;
+}
+
+.form-field__error {
+  color: rgb(255, 100, 100);
+}
+
+.form-field__error_visible {
+  display: none;
+}
+
+.form__input_validation {
+  box-shadow: 0 0 0.5vmax 0.1vmax red;
+  margin-bottom: 0.5vmax;
+}
+
+.form__input_list-box {
+  display: inline;
+}
+
+.form__button {
+  font-size: 1vmax;
+  margin-top: 10%;
+  border-radius: 0.2vmax;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.form__button:hover {
+  background-color: rgb(145, 241, 241);
+}
