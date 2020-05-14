@@ -32,7 +32,7 @@ body {
 }
 
 .sunny {
-  background-image: linear-gradient(#ffffff, #00a6f3);
+  background-image: linear-gradient(#fff, #00a6f3);
 }
 
 .rainy {
@@ -44,7 +44,7 @@ body {
 }
 
 .cloudy {
-  background-image: linear-gradient(#fffbb6, #ffffff);
+  background-image: linear-gradient(#fffbb6, #fff);
 }
 
 .header__text {
@@ -134,24 +134,31 @@ body {
   0% {
     transform: scale(1.2) rotate(-15deg);
   }
+
   15% {
     transform: scale(1.2) rotate(15deg);
   }
+
   30% {
     transform: scale(1.2) rotate(-15deg);
   }
+
   45% {
     transform: scale(1.2) rotate(15deg);
   }
+
   60% {
     transform: scale(1.2) rotate(-15deg);
   }
+
   75% {
     transform: scale(1.2) rotate(15deg);
   }
+
   90% {
     transform: scale(1.2) rotate(-15deg);
   }
+
   100% {
     transform: scale(1.2) rotate(1deg);
   }
@@ -161,36 +168,47 @@ body {
   0% {
     transform: scale(1.2) translateY(0);
   }
+
   10% {
     transform: scale(1.2) translateY(0.2vh);
   }
+
   20% {
     transform: scale(1.2) translateY(0.4vh);
   }
+
   30% {
     transform: scale(1.2) translateY(0.2vh);
   }
+
   40% {
     transform: scale(1.2) translateY(0);
   }
+
   50% {
     transform: scale(1.2) translateY(0.2vh);
   }
+
   60% {
     transform: scale(1.2) translateY(0.4vh);
   }
+
   70% {
     transform: scale(1.2) translateY(0.2vh);
   }
+
   80% {
     transform: scale(1.2) translateY(0);
   }
+
   90% {
     transform: scale(1.2) translateY(0.2vh);
   }
+
   95% {
     transform: scale(1.2) translateY(0.4vh);
   }
+
   100% {
     transform: scale(1.2) translateY(0);
   }
