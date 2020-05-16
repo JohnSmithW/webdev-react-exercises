@@ -6,16 +6,11 @@ class ProductTable extends React.Component {
   constructor(props) {
     super(props);
     this.sort = this.sort.bind(this);
-    this.state = {
-      reverse: false,
-    };
   }
 
   sort() {
-    if (!this.state.reverse) {
-      this.setState({
-        reverse: true,
-      });
+    if (!state.reverse) {
+      state.reverse = true;
       state.products.sort(function (a, b) {
         if (a.amount > b.amount) {
           return 1;
@@ -27,9 +22,7 @@ class ProductTable extends React.Component {
         return 0;
       });
     } else {
-      this.setState({
-        reverse: false,
-      });
+      state.reverse = false;
       state.products.sort(function (a, b) {
         if (a.amount < b.amount) {
           return 1;
@@ -51,31 +44,14 @@ class ProductTable extends React.Component {
           <td>Категория</td>
           <td>Цена (шт.)</td>
           <td>
-            Кол-во <button onClick={this.sort}>сортировка</button>
+            Кол-во{' '}
+            <button type="button" onClick={this.sort}>
+              сортировка
+            </button>
           </td>
         </tr>
         {state.products.map((product) => {
-          if (state.filters.isFruitChecked && product.category === 'fruit') {
-            return (
-              <tr>
-                <td>{product.name}</td>
-                <td>{product.category}</td>
-                <td>{product.price}</td>
-                <td>{product.amount}</td>
-              </tr>
-            );
-          }
-          if (state.filters.isVegetablesChecked && product.category === 'vegetable') {
-            return (
-              <tr>
-                <td>{product.name}</td>
-                <td>{product.category}</td>
-                <td>{product.price}</td>
-                <td>{product.amount}</td>
-              </tr>
-            );
-          }
-          if (state.filters.isCannedfoodChecked && product.category === 'canned food') {
+          if (state.filters.isFruitChecked && product.category === state.category) {
             return (
               <tr>
                 <td>{product.name}</td>

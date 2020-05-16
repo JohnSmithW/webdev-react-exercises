@@ -1,6 +1,6 @@
 import React from 'react';
-import ProductFilters from '../components/ProductFilters.js';
-import ProductTable from '../components/ProductTable.js';
+import ProductFilters from '../components/ProductFilters';
+import ProductTable from '../components/ProductTable';
 
 export default class App extends React.Component {
   render() {

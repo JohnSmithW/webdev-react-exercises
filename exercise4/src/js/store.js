@@ -15,6 +15,9 @@ const state = store({
     { id: 6, name: 'яблоки', price: 1000, amount: 50, category: 'fruit' },
     { id: 7, name: 'картофель', price: 500, amount: 30, category: 'vegetable' },
   ],
+  reverse: false,
+  category: '',
+  type: {},
 });
 
 export default state;

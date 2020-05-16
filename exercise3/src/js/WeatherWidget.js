@@ -1,30 +1,24 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
-class WeatherWidget extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <React.StrictMode>
-        <div className="main">
-          <div className={'header ' + this.props.weather}>
-            <span className="header__text">{this.props.weather}</span>
-            <div className="header__icon"></div>
-          </div>
-          <div className="content">
-            <div className="content__item">city: {this.props.city}</div>
-            <div className="content__item">precipitation: {this.props.precipitation}%</div>
-            <div className="content__item">temperature: {this.props.temperature}°F</div>
-            <div className="content__item">wind: {this.props.wind}m/s</div>
-            <div className="content__item">humidity: {this.props.humidity}%</div>
-          </div>
+function WeatherWidget(props) {
+  return (
+    <React.StrictMode>
+      <div className="main">
+        <div className={'header ' + props.weather}>
+          <span className="header__text">{props.weather}</span>
+          <div className="header__icon"></div>
         </div>
-      </React.StrictMode>
-    );
-  }
+        <div className="content">
+          <div className="content__item">city: {props.city}</div>
+          <div className="content__item">precipitation: {props.precipitation}%</div>
+          <div className="content__item">temperature: {props.temperature}°F</div>
+          <div className="content__item">wind: {props.wind}m/s</div>
+          <div className="content__item">humidity: {props.humidity}%</div>
+        </div>
+      </div>
+    </React.StrictMode>
+  );
 }
 
 // const widgets = (

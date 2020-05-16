@@ -10,44 +10,56 @@ module.exports = {
   entry: './main.js',
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
     minimize: true,
-    minimizer: [
-      new TerserPlugin(),
-      new OptimizeCssAssetsPlugin({})
-    ],
+    minimizer: [new TerserPlugin(), new OptimizeCssAssetsPlugin({})],
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
   },
   plugins: [
     new HTMLWebpackPlugin({
       template: 'index.html',
       minify: {
-        collapseWhitespace: true
-      }
+        collapseWhitespace: true,
+      },
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].css'
-    })
+      filename: '[name].css',
+    }),
   ],
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.css$/,
-        use: [{
+        use: [
+          {
             loader: MiniCssExtractPlugin.loader,
             options: {},
           },
           'css-loader',
-        ]
+        ],
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader',
         },
-      }
-    ]
-  }
-}
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+    ],
+  },
+};

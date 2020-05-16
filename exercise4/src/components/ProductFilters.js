@@ -1,7 +1,7 @@
 import React from 'react';
-import Checkbox from './Checkbox';
 import { view } from '@risingstack/react-easy-state';
 import state from '../js/store';
+import Checkbox from './Checkbox';
 
 class ProductFilters extends React.Component {
   render() {
@@ -18,16 +18,42 @@ class ProductFilters extends React.Component {
           }}
         />
         <hr />
-        <Checkbox label="Фрукты" checked={state.filters.isFruitChecked} onChange={() => (state.filters.isFruitChecked = !state.filters.isFruitChecked)} />
+        <Checkbox
+          label="Фрукты"
+          checked={state.filters.isFruitChecked}
+          onChange={() => {
+            state.filters.isFruitChecked = !state.filters.isFruitChecked;
+            if (state.filters.isFruitChecked) {
+              state.category = 'fruit';
+              state.type.push({ fruit: true });
+            } else {
+              state.category = '';
+            }
+          }}
+        />
         <Checkbox
           label="Овощи"
           checked={state.filters.isVegetablesChecked}
-          onChange={() => (state.filters.isVegetablesChecked = !state.filters.isVegetablesChecked)}
+          onChange={() => {
+            state.filters.isVegetablesChecked = !state.filters.isVegetablesChecked;
+            if (state.filters.isVegetablesChecked) {
+              state.category = 'vegetable';
+            } else {
+              state.category = '';
+            }
+          }}
         />
         <Checkbox
           label="Консервы"
           checked={state.filters.isCannedfoodChecked}
-          onChange={() => (state.filters.isCannedfoodChecked = !state.filters.isCannedfoodChecked)}
+          onChange={() => {
+            state.filters.isCannedfoodChecked = !state.filters.isCannedfoodChecked;
+            if (state.filters.isVegetablesChecked) {
+              state.category = 'canned food';
+            } else {
+              state.category = '';
+            }
+          }}
         />
       </div>
     );
