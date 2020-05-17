@@ -1,6 +1,6 @@
 import React from 'react';
 import { view } from '@risingstack/react-easy-state';
-import state from '../js/store';
+import state from '../store';
 
 class ProductTable extends React.Component {
   constructor(props) {
@@ -51,7 +51,7 @@ class ProductTable extends React.Component {
           </td>
         </tr>
         {state.products.map((product) => {
-          if (state.filters.isFruitChecked && product.category === state.category) {
+          if (state.category.indexOf(product.category) !== -1) {
             return (
               <tr>
                 <td>{product.name}</td>

@@ -16,8 +16,7 @@ const state = store({
     { id: 7, name: 'картофель', price: 500, amount: 30, category: 'vegetable' },
   ],
   reverse: false,
-  category: '',
-  type: {},
+  category: ['fruit', 'vegetable', 'canned food'],
 });
 
 export default state;

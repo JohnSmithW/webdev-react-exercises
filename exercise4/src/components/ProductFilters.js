@@ -1,6 +1,6 @@
 import React from 'react';
 import { view } from '@risingstack/react-easy-state';
-import state from '../js/store';
+import state from '../store';
 import Checkbox from './Checkbox';
 
 class ProductFilters extends React.Component {
@@ -15,6 +15,12 @@ class ProductFilters extends React.Component {
             state.filters.isFruitChecked = state.filters.isAllChecked;
             state.filters.isVegetablesChecked = state.filters.isAllChecked;
             state.filters.isCannedfoodChecked = state.filters.isAllChecked;
+            if (state.filters.isAllChecked) {
+              state.category = ['fruit', 'vegetable', 'canned food'];
+              console.log(state.filters.isAllChecked);
+            } else {
+              state.category = [];
+            }
           }}
         />
         <hr />
@@ -23,11 +29,11 @@ class ProductFilters extends React.Component {
           checked={state.filters.isFruitChecked}
           onChange={() => {
             state.filters.isFruitChecked = !state.filters.isFruitChecked;
-            if (state.filters.isFruitChecked) {
-              state.category = 'fruit';
-              state.type.push({ fruit: true });
+            state.filters.isAllChecked = false;
+            if (state.category.indexOf('fruit') !== -1) {
+              state.category.splice(state.category.indexOf('fruit'), 1);
             } else {
-              state.category = '';
+              state.category.push('fruit');
             }
           }}
         />
@@ -36,10 +42,11 @@ class ProductFilters extends React.Component {
           checked={state.filters.isVegetablesChecked}
           onChange={() => {
             state.filters.isVegetablesChecked = !state.filters.isVegetablesChecked;
-            if (state.filters.isVegetablesChecked) {
-              state.category = 'vegetable';
+            state.filters.isAllChecked = false;
+            if (state.category.indexOf('vegetable') !== -1) {
+              state.category.splice(state.category.indexOf('vegetable'), 1);
             } else {
-              state.category = '';
+              state.category.push('vegetable');
             }
           }}
         />
@@ -48,10 +55,11 @@ class ProductFilters extends React.Component {
           checked={state.filters.isCannedfoodChecked}
           onChange={() => {
             state.filters.isCannedfoodChecked = !state.filters.isCannedfoodChecked;
-            if (state.filters.isVegetablesChecked) {
-              state.category = 'canned food';
+            state.filters.isAllChecked = false;
+            if (state.category.indexOf('canned food') !== -1) {
+              state.category.splice(state.category.indexOf('canned food'), 1);
             } else {
-              state.category = '';
+              state.category.push('canned food');
             }
           }}
         />
